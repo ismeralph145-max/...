@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Sian 💖</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>For My Sian 💌</h1>
+    <p>A little website made with love</p>
+  </header>
+
+  <!-- Love Letter -->
+  <section class="love-letter">
+    <h2>Open Your Letter ✉️</h2>
+    <button onclick="openLetter()">Open Letter</button>
+    <div class="letter" id="letter-box">
+      <p>
+        My dearest Sian, <br><br>
+        I just wanted to start this off with you know HAPPY BIRTHDAYYYYYY and I LOVE YOU!!! omggggg. Im really so happy for you and what youve accomplished and the many great things youve done not just for me but also for the people that surrounds you...
+        <br><br>
+        You are my Freedom Sian. Happy Birthday love mwa mwa mwa mwa mwa mwa 💕
+      </p>
+    </div>
+  </section>
+
+  
+  <!-- Love Quotes -->
+  <section class="quotes">
+    <h2>Quotes ✨</h2>
+    <p id="quote">Loading something sweet...</p>
+  </section>
+
+  <!-- Reasons I Love You -->
+  <section class="reasons">
+    <h2>Reasons I Love You 🌹</h2>
+    <ul id="reasons-list"></ul>
+  </section>
+
+  <!-- Hidden Surprise -->
+  <section class="surprise">
+    <h2>Click for a Surprise 🎁</h2>
+    <button id="surprise-btn">Open Surprise</button>
+    <div id="surprise-content">
+      <img src="picuters/SUPRISE.webp" alt="Surprise Image">
+      <p>You are my everything, Sian 💕</p>
+    </div>
+  </section>
+
+  <!-- Floating Hearts -->
+  <div id="hearts-container"></div>
+
+  <!-- Background Music -->
+<audio id="bg-music" autoplay loop muted>
+  <source src="picuters/roost.mp3" type="audio/mp3">
+</audio>
+
+<div class="music-controls">
+  <button id="play-pause">▶️ Play</button>
+  <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5">
+</div>
+
+<style>
+  .music-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: center;
+  }
+
+  #play-pause {
+    padding: 15px 30px;
+    font-size: 20px;
+    border-radius: 12px;
+    border: none;
+    background: #ffcce0;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  #play-pause:hover {
+    background: #ffcce0;
+  }
+
+  #volume {
+    width: 150px;
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  const music = document.getElementById("bg-music");
+  const playPauseBtn = document.getElementById("play-pause");
+  const volumeSlider = document.getElementById("volume");
+
+  playPauseBtn.addEventListener("click", () => {
+    if (music.paused) {
+      music.muted = false; // unmute once user presses play
+      music.play();
+      playPauseBtn.textContent = "⏸ Pause";
+    } else {
+      music.pause();
+      playPauseBtn.textContent = "▶️ Play";
+    }
+  });
+
+  volumeSlider.addEventListener("input", () => {
+    music.volume = volumeSlider.value;
+  });
+</script>
+
+
+  <!-- Photo Gallery -->
+  <section class="photo-gallery">
+    <h2>Gallery 📸</h2>
+    <div class="gallery">
+      <div class="gallery-item"><img src="picuters/Photo 9.webp" alt="Photo 1"></div>
+      <div class="gallery-item"><img src="picuters/Photo 2.png" alt="Photo 2"></div>
+      <div class="gallery-item"><img src="picuters/Photo 12.webp" alt="Photo 3"></div>
+      <div class="gallery-item"><img src="picuters/Photo 11.webp" alt="Photo 4"></div>
+      <div class="gallery-item"><img src="picuters/Photo 4.png" alt="Photo 5"></div>
+      <div class="gallery-item"><img src="picuters/Photo 7.webp" alt="Photo 6"></div>
+      <div class="gallery-item"><img src="picuters/Photo 6.webp" alt="Photo 1"></div>
+      <div class="gallery-item"><img src="picuters/Photo 10.webp" alt="Photo 2"></div>
+      <div class="gallery-item"><img src="picuters/Photo 3.png" alt="Photo 3"></div>
+      <div class="gallery-item"><img src="picuters/Photo 5.webp" alt="Photo 4"></div>
+      <div class="gallery-item"><img src="picuters/Photo 8.webp" alt="Photo 5"></div>
+      <div class="gallery-item"><img src="picuters/Photo 1.png" alt="Photo 6"></div>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <!-- Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <script>
+    // Reveal Surprise & Confetti
+    document.getElementById('surprise-btn').addEventListener('click', () => {
+      const content = document.getElementById('surprise-content');
+      content.classList.add('visible');
+
+      // Launch confetti
+      const duration = 2000;
+      const animationEnd = Date.now() + duration;
+      const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 9999 };
+      const interval = setInterval(function() {
+        const timeLeft = animationEnd - Date.now();
+        if (timeLeft <= 0) return clearInterval(interval);
+        confetti(Object.assign({}, defaults, { particleCount: 5, origin: { x: Math.random(), y: Math.random() - 0.2 } }));
+      }, 250);  
+    });
+  </script>
+</body>
+</html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
